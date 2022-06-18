@@ -1,0 +1,132 @@
+Variables:
+
+int age = 30;
+
+Primitive Types:
+byte   : 1
+short  : 2
+int    : 4
+long   : 8
+float  : 4
+double : 8
+char   : 2
+boolean: true/false
+
+byte age = 30;
+long viewsCount = 3_123_456_789L;
+float price = 10.99F;
+char letter = 'A';
+boolean isEligible = false;
+
+Reference Types:
+import java.util.Date;
+Date now = new Date();
+now.getTime();
+Classes have members and can be accessed using dot operator.
+System.out.println(now);
+
+Reference types are copied by references. Changes in the value reflects in other variables as it refers the address.
+
+=====================================================================================================================
+Strings:
+
+String message = new String("Hello World");
+String message = "Hello World";
+
+"Hello World" + "!!"; //concatenation
+message.endsWith("!!');
+message.startsWith("!!');
+message.length();
+message.indexOf("e");
+message.replace(target:"!", replacement:"*");
+
+In Java, strings are immutable.
+message.toLowerCase();
+messgae.tri();
+
+=====================================================================================================================
+Escape Sequences:
+
+String message = "Hello \"Tahseen\"";
+String path = "C:\\Windows\\temp\\..";
+
+\n
+\t
+Other examples are hardly used.
+
+=====================================================================================================================
+Arrays:
+
+int[] numbers = new int[5];
+numbers[0] = 1;
+numbers[1] = 2;
+numbers[2] = 3;
+numbers[3] = 4;
+numbers[4] = 5;
+
+int[] numbers = {2,3,5,1,4};
+System.out.println(numbers.length);
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers));
+
+=====================================================================================================================
+Constants:
+final float PI = 3.14F;
+
+=====================================================================================================================
+Arithmetic Expressions:
+
+int result = 10/3;
+double result = (double)10/(double)3;
+
+int x = 1;
+int y = x++;
+System.out.printline(x);//2
+System.out.printline(y);//1
+
+int x = 3;
+int y = ++x;
+System.out.printline(x);//4
+System.out.printline(y);//4
+
+=====================================================================================================================
+Casting:
+Implicit casting: happens when there is no chance to lose data.
+short x = 1;
+int y = x + 2;
+System.out.printline(y);
+
+double x = 1.1;
+double y = x + 2;
+
+Explicit casting:
+double x = 1.1;
+int y = (int)x + 2;
+
+casting is done among compatible types.
+
+=====================================================================================================================
+Math class:
+
+int result = Math.round(1.1F);
+int result = (int)Math.ceil(1.1F);
+int result = (int)Math.floor(1.1F);
+double result = Math.random();
+double result = Math.random()*100;//Random number between 0 and 100
+int result = (int)Math.round(Math.random()*100);
+int result = (int)(Math.random()*100);
+
+=====================================================================================================================
+Reading Input:
+
+Scanner scanner = new Scanner(System.in);
+System.out.print("Age: ");
+byte age = scanner.nextByte();
+System.out.println("You are " + age);
+
+System.out.print("Name: ");
+String name = scanner.next();
+System.out.println("You are " + name);
+String name = scanner.nextLine();
+
+=====================================================================================================================
