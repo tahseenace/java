@@ -1,0 +1,25 @@
+Every java program should have at least main function. This is entry point for programs. 
+
+A class is a container of related functions. 
+First letter of every word should be uppercase in the name of class. 
+
+A method is a function that is part of a class. If it exists outside of class, it is called function. 
+Access Modifier: public, private and so on.
+
+-----------------------------------------------------------------------------------------------------------------
+Under the hood:
+Compilation: from java code to byte code(.class)
+Java Virtual Machine translates bytecode into native code for the OS. 
+
+In terminal:
+javac Main.java
+java com.tahseen.Main
+
+-----------------------------------------------------------------------------------------------------------------
+James Gosling in 1995 at Sun Microsystems.
+It was originally called Oak.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
