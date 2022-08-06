@@ -1,7 +1,5 @@
 Variables:
 
-int age = 30;
-
 Primitive Types:
 byte   : 1
 short  : 2
@@ -18,31 +16,39 @@ float price = 10.99F;
 char letter = 'A';
 boolean isEligible = false;
 
+
 Reference Types:
 import java.util.Date;
 Date now = new Date();
 now.getTime();
+
 Classes have members and can be accessed using dot operator.
 System.out.println(now);
 
 Reference types are copied by references. Changes in the value reflects in other variables as it refers the address.
 
+Three types of variables.
+local - defined inside method. scope is method only.
+instance - defined insde class but outside method. this is instance specific and not shared among instances. 
+static - defined as static. you create a single copy and is shared among all instances. memory allocation while loading the class
+takes place only once. 
+
 =====================================================================================================================
 Strings:
-
-String message = new String("Hello World");
-String message = "Hello World";
+ 
+String message = new String("Hello World"); //This is redundant.
+String message = "Hello World"; //This is still a reference type and shorthand way of creating object. 
 
 "Hello World" + "!!"; //concatenation
-message.endsWith("!!');
+message.endsWith("!!'); // returns boolean
 message.startsWith("!!');
 message.length();
 message.indexOf("e");
 message.replace(target:"!", replacement:"*");
 
-In Java, strings are immutable.
+In Java, strings are immutable > Means original string remains the same. Dot operations returns a new string. 
 message.toLowerCase();
-messgae.tri();
+messgae.trim(); //whitespaces are removed
 
 =====================================================================================================================
 Escape Sequences:
@@ -69,28 +75,32 @@ System.out.println(numbers.length);
 Arrays.sort(numbers);
 System.out.println(Arrays.toString(numbers));
 
+multi-dimensional arrays:
+int[] numbers = new int[2][3];
+numbers[0][0] = 1;
+or,
+int[] numbers = {{1,2,3},{4,5,6}}
+
 =====================================================================================================================
 Constants:
-final float PI = 3.14F;
+
+final float PI = 3.14F; //you can't assign PI again.  
 
 =====================================================================================================================
 Arithmetic Expressions:
 
-int result = 10/3;
-double result = (double)10/(double)3;
+int result = 10/3; //result will be integer. 
+double result = (double)10 / (double)3;
 
 int x = 1;
-int y = x++;
+int y = x++; // x is first assigned to y and then incremented.
+int y = ++x; // x is first incremented
 System.out.printline(x);//2
 System.out.printline(y);//1
 
-int x = 3;
-int y = ++x;
-System.out.printline(x);//4
-System.out.printline(y);//4
-
 =====================================================================================================================
 Casting:
+
 Implicit casting: happens when there is no chance to lose data.
 short x = 1;
 int y = x + 2;
@@ -104,6 +114,11 @@ double x = 1.1;
 int y = (int)x + 2;
 
 casting is done among compatible types.
+String x = "1";
+We can't cast x to integer. We use wrapper classes.
+Integer.parseInt(x);
+Short.parseShort();
+Float.parseFloat();
 
 =====================================================================================================================
 Math class:
@@ -114,7 +129,18 @@ int result = (int)Math.floor(1.1F);
 double result = Math.random();
 double result = Math.random()*100;//Random number between 0 and 100
 int result = (int)Math.round(Math.random()*100);
-int result = (int)(Math.random()*100);
+int result = (int)(Math.random()*100); 
+
+=====================================================================================================================
+Number Formatting
+		
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String result = currency.format(1234567.891);
+        System.out.println(result);
+
+        NumberFormat percent = NumberFormat.getPercentInstance();
+        String result1 = percent.format(0.18);
+        System.out.println(result1);
 
 =====================================================================================================================
 Reading Input:
@@ -128,5 +154,37 @@ System.out.print("Name: ");
 String name = scanner.next();
 System.out.println("You are " + name);
 String name = scanner.nextLine();
+
+=====================================================================================================================
+//Mortgage Calculator
+
+
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Principal: ");
+        int principal = scanner.nextInt();
+
+        System.out.print("Annual Interest Rate: ");
+        float annualInterest = scanner.nextFloat();
+        float monthlyInterest = annualInterest/MONTHS_IN_YEAR/PERCENT;
+
+        System.out.print("Period (Years): ");
+        byte years = scanner.nextByte();
+        int numberOfPayments = years * MONTHS_IN_YEAR;
+
+        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))/(Math.pow(1+monthlyInterest,numberOfPayments) - 1);
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+
+        System.out.println("Mortgage: " + mortgageFormatted);
+    }
+}
+
 
 =====================================================================================================================
